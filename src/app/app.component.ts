@@ -1,6 +1,4 @@
-import { Component, inject } from '@angular/core';
-
-import { Firestore } from '@angular/fire/firestore';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -11,5 +9,4 @@ import { Firestore } from '@angular/fire/firestore';
 export class AppComponent {
   
   public title = 'Tarjeta de crédito';
-  public firestore: Firestore = inject( Firestore );
 }
