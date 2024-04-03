@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './components/card/card.component';
 import { ListCardComponent } from './components/list-card/list-card.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
