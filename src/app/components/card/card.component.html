@@ -4,5 +4,88 @@
 <div class="card">
     <div class="card-body">
         <h5 class="text-center title">{{ title }}</h5>
+        <form 
+            [formGroup]="form" 
+            (ngSubmit)="createCard()"
+            class="mt-3">
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text">
+                    <i 
+                        class="fa-regular fa-circle-user" 
+                        [class.success-icon]="this.form.get('titular')?.valid"
+                        [class.error-icon]="this.form.get('titular')?.invalid && this.form.get('titular')?.touched">
+                    </i>
+                </span>
+                <input 
+                    formControlName="titular"
+                    type="text" 
+                    class="form-control"
+                    placeholder="Titular" 
+                    aria-label="Titular">
+            </div>
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text">
+                    <i 
+                        class="fa-regular fa-credit-card" 
+                        [class.success-icon]="this.form.get('numCard')?.valid"
+                        [class.error-icon]="this.form.get('numCard')?.invalid && this.form.get('numCard')?.touched">
+                    </i>
+                </span>
+                <input 
+                    formControlName="numCard"
+                    type="text" 
+                    maxlength="16"
+                    class="form-control" 
+                    placeholder="Número de la tarjeta" 
+                    aria-label="Número de la tarjeta">
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i 
+                                class="fa-regular fa-calendar" 
+                                [class.success-icon]="this.form.get('expirateDate')?.valid"
+                                [class.error-icon]="this.form.get('expirateDate')?.invalid && this.form.get('expirateDate')?.touched">
+                            </i>
+                        </span>
+                        <input 
+                            formControlName="expirateDate"
+                            type="datetime" 
+                            maxlength="5"
+                            class="form-control" 
+                            placeholder="MM/YY" 
+                            aria-label="Fecha de caducidad">
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i 
+                                class="fa-solid fa-key" 
+                                [class.success-icon]="this.form.get('cvv')?.valid"
+                                [class.error-icon]="this.form.get('cvv')?.invalid && this.form.get('cvv')?.touched">
+                            </i>
+                        </span>
+                        <input 
+                            formControlName="cvv"
+                            type="password" 
+                            maxlength="3"
+                            class="form-control" 
+                            placeholder="CVV" 
+                            aria-label="CVV">
+                    </div>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <button 
+                    [disabled]="form.invalid"
+                    class="btn btn-success btn-lg" 
+                    type="submit">
+                    <i class="fa-solid fa-database"></i>
+                    Aceptar
+                </button>
+            </div>
+        </form>
     </div>
 </div>

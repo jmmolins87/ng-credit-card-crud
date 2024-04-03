@@ -1,0 +1,32 @@
+
+tr {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+}
+tr span:first-of-type {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 1 75%;
+}
+tr span:nth-child(2) {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1 1 25%;
+}
+tr span:nth-child(2) td:first-of-type,
+tr span:nth-child(2) td:nth-child(2) {
+    cursor: pointer;
+}
+tr span:nth-child(2) td:first-of-type {
+    margin-right: 16px;
+    color: var(--bs-success);
+}
+tr span:nth-child(2) td:nth-child(2) {
+    color: var(--bs-danger);
+}
