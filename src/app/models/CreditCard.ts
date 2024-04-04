@@ -7,7 +7,7 @@ export class CreditCard {
     numCard: string;
     expirateDate: string;
     cvv: number;
-    createDate: Date;
+    createDate?: Date;
     updateDate: Date;
 
     constructor( titular: string, numCard: string, expirateDate: string, cvv: number ) {

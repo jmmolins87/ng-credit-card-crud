@@ -43,4 +43,8 @@ export class ListCardComponent {
     });
   }
 
+  addCard( card: CreditCard ) {
+    this.cardService.addCard( card );
+  }
+
 }
