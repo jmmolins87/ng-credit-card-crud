@@ -13,9 +13,9 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { CardComponent } from './components/card/card.component';
 import { ListCardComponent } from './components/list-card/list-card.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 import { environment } from './../environments/environment';
-import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 

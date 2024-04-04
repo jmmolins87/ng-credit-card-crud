@@ -10,7 +10,12 @@ export class CreditCard {
     createDate?: Date;
     updateDate: Date;
 
-    constructor( titular: string, numCard: string, expirateDate: string, cvv: number ) {
+    constructor( 
+        
+        titular: string, 
+        numCard: string, 
+        expirateDate: string, 
+        cvv: number ) {
 
         this.titular = titular;
         this.numCard = numCard;
