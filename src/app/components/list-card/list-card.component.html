@@ -4,17 +4,22 @@
 <div class="card">
     <div class="card-body">
         <h5 class="text-center title">{{ title }}</h5>
-        <table class="table table-hover mt-3">
-            <tbody>
-                <tr>
+        <table class="table table-hover mt-3 mb-0">
+            <tbody *ngIf="listCard.length === 0">
+                <div class="alert alert-danger text-center mb-0" role="alert">
+                    No tiene tarjetas que mostrar
+                </div>
+            </tbody>
+            <tbody *ngIf="listCard">
+                <tr *ngFor="let infoCard of listCard">
                     <span>
-                        <td>Juanma Molins Cortés</td>
-                        <td>12124143143134</td>
-                        <td>24/32</td>
+                        <td>{{ infoCard.titular }}</td>
+                        <td>{{ infoCard.numCard }}</td>
+                        <td>{{ infoCard.expirateDate }}</td>
                     </span>
                     <span>
                         <td><i class="fa-solid fa-pen-to-square"></i></td>
-                        <td><i class="fa-solid fa-trash-can"></i></td>
+                        <td><i (click)="deleteCard( infoCard.id )" class="fa-solid fa-trash-can"></i></td>
                     </span>
                 </tr>                
             </tbody>

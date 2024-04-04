@@ -4,7 +4,9 @@ import {
   FormGroup,
   Validators 
 } from '@angular/forms';
-import { CreditCard } from 'src/app/models/CreditCard';
+import { CreditCard } from './../../models/CreditCard';
+import { CardService } from './../../services/card.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-card',
@@ -15,8 +17,12 @@ export class CardComponent {
 
   public title: string = 'Crear Tarjeta';
   public form: FormGroup;
+  public showSpinner: boolean = false;
 
-  constructor( fb: FormBuilder ) {
+  constructor( 
+      private fb: FormBuilder, 
+      private cardService: CardService,
+      private toastr: ToastrService ) {
     this.form = fb.group({
       titular: [ '', Validators.required ],
       numCard: [ 
@@ -47,6 +53,7 @@ export class CardComponent {
   }
 
   createCard() {
+
     const card: CreditCard = {
       titular: this.form.value.titular,
       numCard: this.form.value.numCard,
@@ -56,7 +63,16 @@ export class CardComponent {
       updateDate: new Date()
     };
 
-    console.log( card );
+    this.showSpinner = true;
+
+    this.cardService.saveCard( card ).then(() => {
+      this.toastr.success('¡¡Tarjeta registrada con éxito!!', 'Tarjeta registrada');
+      this.showSpinner = false;
+      this.form.reset();
+    }, error => {
+      this.showSpinner = false;
+      this.toastr.error('Error al registrar la tarjeta', 'Error en el registro')
+    });
   }
 
 }

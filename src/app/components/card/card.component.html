@@ -3,7 +3,10 @@
 
 <div class="card">
     <div class="card-body">
-        <h5 class="text-center title">{{ title }}</h5>
+        <h5 class="text-center title">
+            {{ title }}
+            <app-spinner *ngIf="showSpinner" class="float-end"></app-spinner>
+        </h5>
         <form 
             [formGroup]="form" 
             (ngSubmit)="createCard()"
